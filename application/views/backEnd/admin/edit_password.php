@@ -60,3 +60,8 @@
 </div>
 </section>
 
+<?php  
+  if(@$alertSweet){
+    echo $alertSweet;
+  }
+?>

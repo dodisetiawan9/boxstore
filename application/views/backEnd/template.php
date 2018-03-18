@@ -40,8 +40,11 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  <script src="<?= base_url(); ?>assets/backEnd/dist/js/sweetalert.min.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+
 <div class="wrapper">
 
   <header class="main-header">
@@ -458,7 +461,7 @@
 <script src="<?= base_url(); ?>assets/backEnd/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url(); ?>assets/backEnd/dist/js/demo.js"></script>
-<script src="<?= base_url(); ?>assets/backEnd/dist/js/sweetalert.min.js"></script>
+
 <script src="<?= base_url(); ?>assets/backEnd/dist/js/velocity.min.js"></script>
 <script src="<?= base_url(); ?>assets/backEnd/dist/js/velocity.ui.js"></script>
 <script src="<?= base_url(); ?>assets/backEnd/dist/js/dropzone.min.js"></script>
@@ -466,6 +469,8 @@
 <script type="text/javascript">
   $('.alert-message').alert().delay(5000).velocity('transition.slideUpOut');
 </script>
+
+
 
 
 </body>

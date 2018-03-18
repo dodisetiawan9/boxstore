@@ -35,10 +35,21 @@ class Admin extends CI_Controller {
 
 				if(!password_verify($this->input->post('password', TRUE), $get->password))
 				{
-					echo '<script>
-									alert("password yang anda masukan salah!");
-									window.location.replace("'.base_url().'login/logout")
-								</script>';
+				$data['alertSweet'] = '<script>
+																swal({
+															    title: "Oops!!",
+															    text: "Password yang anda masukan salah",
+															    icon: "warning",
+															    dangerMode: true,
+															  })
+
+															  .then(redirect => {
+															    if (redirect) {
+															      window.location.replace("'.base_url().'login/logout");
+															    }
+															  });
+															</script>';
+
 				}
 				else{
 
@@ -112,10 +123,20 @@ class Admin extends CI_Controller {
 
 				if(!password_verify($this->input->post('password', TRUE), $get->password))
 				{
-					echo '<script>
-									alert("password yang anda masukan salah!");
-									window.location.replace("'.base_url().'admin/edit_password")
-								</script>';
+					$data['alertSweet'] = '<script>
+																swal({
+															    title: "Oops!!",
+															    text: "Password yang anda masukan salah",
+															    icon: "warning",
+															    dangerMode: true,
+															  })
+
+															  .then(redirect => {
+															    if (redirect) {
+															      window.location.replace("'.base_url().'admin/edit_password");
+															    }
+															  });
+															</script>';
 
 				}
 				else
@@ -140,6 +161,7 @@ class Admin extends CI_Controller {
 
 		$this->template->adminTemplate('backEnd/admin/edit_password', $data);
 	}
+
 
 	public function cekLogin()
 	{

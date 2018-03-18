@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>BOXstore | Log in</title>
+  <title>BOXstore</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -27,6 +27,7 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+
   <style>
     form{
       margin-bottom: 20px;
@@ -40,14 +41,21 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in</p>
+    <p class="login-box-msg">Lost Password</p>
     <br>
     <?php 
       if($this->session->flashdata('fail')){
-        echo '<div class="alert alert-warning alert-dismisable">
-                <button type="button" class="close" data-dismiss="alert">&times</button>';
+        echo '<div class="alert alert-warning alert-message">';
 
         echo $this->session->flashdata('fail');
+        echo '</div>';
+
+        
+      }
+      elseif($this->session->flashdata('success')){
+        echo '<div class="alert alert-info alert-message">';
+
+        echo $this->session->flashdata('success');
         echo '</div>';
 
         
@@ -56,24 +64,16 @@
 
     <form action="" method="post">
       <div class="form-group has-feedback">
-        <input type="text" name="username" class="form-control" placeholder="Email / Username">
+        <input type="email" name="email" class="form-control" placeholder="Enter Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
-      <div class="form-group has-feedback">
-        <input type="password" name="password" class="form-control" placeholder="Password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
+      <hr>
       <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Remember Me
-            </label>
-          </div>
-        </div>
         <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" name="login" value="Login" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        <div class="col-sm-12 pull-right">
+          <button type="button" onclick="window.history.go(-1)" class="btn btn-primary btn-flat">Back</button>
+
+          <button type="submit" name="submit" value="SUBMIT" class="btn btn-danger">Submit</button>
         </div>
         <!-- /.col -->
       </div>
@@ -88,9 +88,6 @@
     </div> -->
     <!-- /.social-auth-links -->
 
-    <a href="<?= base_url(); ?>lost_admin" class="forgot">I forgot my password</a><br>
-    <a href="register.html" class="text-center">Register a new membership</a>
-
   </div>
   <!-- /.login-box-body -->
 </div>
@@ -102,14 +99,14 @@
 <script src="<?= base_url(); ?>assets/backEnd/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="<?= base_url(); ?>assets/backEnd/plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-  });
+<script src="<?= base_url(); ?>assets/backEnd/dist/js/velocity.min.js"></script>
+<script src="<?= base_url(); ?>assets/backEnd/dist/js/velocity.ui.js"></script>
+
+<script type="text/javascript">
+  $('.alert-message').alert().delay(5000).velocity('transition.slideUpOut');
 </script>
+
+
 </body>
 </html>
+

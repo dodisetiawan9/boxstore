@@ -95,9 +95,16 @@
       <!-- /.box-body -->
       <div class="box-footer">
         <a href="<?= base_url(); ?>admin" class="btn btn-default"><< Kembali</a>
+      <!--   <button type="button" onclick="">coba</button> -->
         <button type="submit" name="simpan" value="SIMPAN" class="btn btn-info pull-right">Simpan</button>
       </div>
       <!-- /.box-footer -->
     </form>
 </div>
 </section>
+
+<?php  
+  if(@$alertSweet){
+    echo $alertSweet;
+  }
+?>
